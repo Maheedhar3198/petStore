@@ -1,0 +1,4 @@
+Feature: Repeated login
+
+  Scenario: Perform login in a loop
+    Given user has to login multipletimes
