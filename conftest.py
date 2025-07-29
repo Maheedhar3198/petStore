@@ -10,5 +10,3 @@ def credentials():
 @pytest.fixture(scope='session')
 def base_url():
     return env.BASE_URL
-
-
