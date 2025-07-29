@@ -1,5 +1,5 @@
 """
-Author      : Maheedhar Doddi
+Author      : Maheedhar Sai
 Date        : 29-07-2025
 Module      : test_multiplelogin.py
 Description : Automates login test using pytest-bdd and Playwright.

@@ -1,4 +1,4 @@
-from TestData import env
+from testdata import env
 from pytest_bdd import scenarios, given, when, then
 from playwright.sync_api import sync_playwright
 
