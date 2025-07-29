@@ -10,7 +10,7 @@ base_url = env.BASE_URL
 username = env.USERNAME
 password = env.PASSWORD
 
-scenarios('userSignin.feature')
+scenarios('user-signin.feature')
 @given('user is on the login page')
 def test_loginpage():
     page.goto(f"{base_url}/actions/Account.action?signonForm=", wait_until="load")
@@ -31,5 +31,4 @@ def test_loginbutton():
 @then('user should be redirected to the home page with welcome message')
 def test_homepage():
     assert page.get_by_text("Welcome Maheedhar!").is_visible(),f"Invalid username or password"
-    #print('user is in homepage')
     pass
