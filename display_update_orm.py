@@ -24,16 +24,23 @@ def test_display_cart():
         print(order.order_id, order.customer_id, order.pet_id, order.order_date, order.quantity)
 
 
-def test_update_cart():
-    order_id = 1
-    new_quantity = 3
+def test_update_cart(order_id, new_quantity):
+    engine = create_engine("mysql+pymysql://root:Atmecs!1234@localhost:3306/petstore")
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-    order = session.query(Orders).filter_by(order_id=order_id).first()
-    order.quantity = new_quantity
-    session.commit()
+    order = session.query(Order).filter_by(order_id=order_id).first()
+    if order:
+        order.quantity = new_quantity
+        session.commit()
 
-    updated_order = session.query(Orders).filter_by(order_id=order_id).first()
-    assert updated_order.quantity == new_quantity
+        updated_order = session.query(Order).filter_by(order_id=order_id).first()
+        assert updated_order.quantity == new_quantity
+        print(f"Order {order_id} updated successfully. New quantity: {new_quantity}")
+    else:
+        print(f"Error: Order with ID {order_id} not found")
+
+    session.close()
 
 
 test_update_cart(order_id=1, new_quantity=5)
